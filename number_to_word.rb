@@ -6,6 +6,8 @@ class NumberToWord
   def translate(number)
     @word = ''
 
+    return number_map[number] if number.zero?
+
     if number > 20 && number < 100
       get_tens(number)
 
