@@ -31,8 +31,6 @@ class NumberToWord
   end
 
   def translate(number)
-    @word = ''
-
     raise InvalidNumberError unless number.is_a? Integer
     raise NumberTooBigError if number >= TRILLION
     raise NegativeNumberError if number < ZERO
