@@ -41,7 +41,7 @@ RSpec.describe NumberToWord do
     end
 
     it 'return fourty two given 42' do
-      expect(@number_to_word.translate(42)).to eq('fourty two')
+      expect(@number_to_word.translate(42)).to eq('forty two')
     end
 
     it 'return seventy six given 76' do
