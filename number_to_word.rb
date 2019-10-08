@@ -1,5 +1,8 @@
 class NumberToWord
   def translate(number)
+    if number >= 0 && number <= 20
+      return number_map[number]
+    end
   end
 
   private
