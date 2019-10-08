@@ -8,6 +8,12 @@ class NumberToWord
 
     return number_map[number] if number.zero?
 
+    if number >= 1_000_000_000 && number < 1_000_000_000_000
+      get_billions(number)
+
+      number = number % 1_000_000_000
+    end
+
     if number >= 1_000_000 && number < 1_000_000_000
       get_millions(number)
 
@@ -26,6 +32,13 @@ class NumberToWord
   end
 
   private
+
+  def get_billions(number)
+    num_billions = number / 1_000_000_000
+    get_hundreds_tens_units(num_billions)
+
+    @word << " billion"
+  end
 
   def get_millions(number)
     num_millions = number / 1_000_000
