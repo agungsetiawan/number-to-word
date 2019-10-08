@@ -201,5 +201,9 @@ RSpec.describe NumberToWord do
     it 'raise NumberTooBigError exception when number is bigger or equal to 1 trillion' do
       expect { @number_to_word.translate(1_000_000_000_000)}.to raise_error(NumberTooBigError)
     end
+
+    it 'raise InvalidNumberError exception when input is not a number' do
+      expect { @number_to_word.translate("100")}.to raise_error(InvalidNumberError)
+    end
   end
 end
