@@ -1,20 +1,24 @@
 class NumberToWord
+  def initialize
+    @word = ''
+  end
+
   def translate(number)
-    word = ''
+    @word = ''
 
     if number > 20 && number < 100
       num_ten = number / 10
       single  = number % 10
 
-      word << number_map[num_ten * 10]
-      word << " #{number_map[single]}" unless single.zero?
+      @word << number_map[num_ten * 10]
+      @word << " #{number_map[single]}" unless single.zero?
     end
 
     if number >= 0 && number <= 20
-      word << number_map[number]
+      @word << number_map[number]
     end
 
-    word
+    @word
   end
 
   private
