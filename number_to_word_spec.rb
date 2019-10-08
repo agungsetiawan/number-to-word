@@ -5,7 +5,7 @@ RSpec.describe NumberToWord do
     @number_to_word = NumberToWord.new
   end
 
-  context '0 - 20' do
+  context 'units and teens' do
     it 'return zero given 0' do
       expect(@number_to_word.translate(0)).to eq('zero')
     end
@@ -31,7 +31,7 @@ RSpec.describe NumberToWord do
     end
   end
 
-  context "21 - 99" do
+  context 'tens' do
     it 'return twenty three given 23' do
       expect(@number_to_word.translate(23)).to eq('twenty three')
     end
@@ -57,7 +57,7 @@ RSpec.describe NumberToWord do
     end
   end
 
-  context "100 - 999" do
+  context 'hundreds' do
     it 'return one hundred given 100' do
       expect(@number_to_word.translate(100)).to eq('one hundred')
     end
@@ -83,7 +83,7 @@ RSpec.describe NumberToWord do
     end
   end
 
-  context "1000 - 999999" do
+  context 'thousands' do
     it 'return one thousand given 1000' do
       expect(@number_to_word.translate(1000)).to eq('one thousand')
     end
@@ -113,7 +113,7 @@ RSpec.describe NumberToWord do
     end
   end
 
-  context "1000000 - 999999999" do
+  context 'millions' do
     it 'return one million given 1000000' do
       expect(@number_to_word.translate(1_000_000)).to eq('one million')
     end
@@ -171,7 +171,7 @@ RSpec.describe NumberToWord do
     end
   end
 
-  context "billions" do
+  context 'billions' do
     it 'return one billion given 1_000_000_000' do
       expect(@number_to_word.translate(1_000_000_000)).to eq('one billion')
     end
@@ -197,7 +197,7 @@ RSpec.describe NumberToWord do
     end
   end
 
-  context "Edge cases" do
+  context 'Edge cases' do
     it 'raise NumberTooBigError exception when number is bigger or equal to 1 trillion' do
       expect { @number_to_word.translate(1_000_000_000_000)}.to raise_error(NumberTooBigError)
     end
