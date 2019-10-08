@@ -30,4 +30,30 @@ RSpec.describe NumberToWord do
       expect(@number_to_word.translate(20)).to eq('twenty')
     end
   end
+
+  context "21 - 99" do
+    it 'return twenty three given 23' do
+      expect(@number_to_word.translate(23)).to eq('twenty three')
+    end
+
+    it 'return thirty given 30' do
+      expect(@number_to_word.translate(30)).to eq('thirty')
+    end
+
+    it 'return fourty two given 42' do
+      expect(@number_to_word.translate(42)).to eq('fourty two')
+    end
+
+    it 'return seventy six given 76' do
+      expect(@number_to_word.translate(76)).to eq('seventy six')
+    end
+
+    it 'return eighty one given 81' do
+      expect(@number_to_word.translate(81)).to eq('eighty one')
+    end
+
+    it 'return ninety nine given 99' do
+      expect(@number_to_word.translate(99)).to eq('ninety nine')
+    end
+  end
 end
