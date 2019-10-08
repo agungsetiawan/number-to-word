@@ -6,7 +6,7 @@ end
 
 class InvalidNumberError < StandardError
   def initialize
-    super('Input is not a number')
+    super('Input is not an integer number')
   end
 end
 
