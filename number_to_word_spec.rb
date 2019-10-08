@@ -170,4 +170,30 @@ RSpec.describe NumberToWord do
       expect(@number_to_word.translate(999_999_999)).to eq('nine hundred ninety nine million nine hundred ninety nine thousand nine hundred ninety nine')
     end
   end
+
+  context "billions" do
+    it 'return one billion given 1_000_000_000' do
+      expect(@number_to_word.translate(1_000_000_000)).to eq('one billion')
+    end
+
+    it 'return one billion one hundred million given 1_100_000_000' do
+      expect(@number_to_word.translate(1_100_000_000)).to eq('one billion one hundred million')
+    end
+
+    it 'return one billion one hundred million one given 1_100_000_001' do
+      expect(@number_to_word.translate(1_100_000_001)).to eq('one billion one hundred million one')
+    end
+
+    it 'return ten billion one hundred twenty three thousand three hundred forty eight given 10_000_123_348' do
+      expect(@number_to_word.translate(10_000_123_348)).to eq('ten billion one hundred twenty three thousand three hundred forty eight')
+    end
+
+    it 'return one hundred billion given 100_000_000_000' do
+      expect(@number_to_word.translate(100_000_000_000)).to eq('one hundred billion')
+    end
+
+    it 'return one hundred billion one hundred million one hundred thousand one hundred given 100_100_100_100' do
+      expect(@number_to_word.translate(100_100_100_100)).to eq('one hundred billion one hundred million one hundred thousand one hundred')
+    end
+  end
 end
