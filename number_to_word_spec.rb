@@ -82,4 +82,34 @@ RSpec.describe NumberToWord do
       expect(@number_to_word.translate(999)).to eq('nine hundred ninety nine')
     end
   end
+
+  context "1000 - 999_999" do
+    it 'return one thousand given 1000' do
+      expect(@number_to_word.translate(1000)).to eq('one thousand')
+    end
+
+    it 'return two thousand nine given 2009' do
+      expect(@number_to_word.translate(2009)).to eq('two thousand nine')
+    end
+
+    it 'return two thousand nineteen given 2019' do
+      expect(@number_to_word.translate(2019)).to eq('two thousand nineteen')
+    end
+
+    it 'return two thousand eight hundred twenty three given 2823 ' do
+      expect(@number_to_word.translate(2823)).to eq('two thousand eight hundred twenty three')
+    end
+
+    it 'return ten thousand given 10000' do
+      expect(@number_to_word.translate(10000)).to eq('ten thousand')
+    end
+
+    it 'return twenty five thousand two hundred thirty four given 25234' do
+      expect(@number_to_word.translate(25234)).to eq('twenty five thousand two hundred thirty four')
+    end
+
+    it 'return nine hundred ninety nine thousand nine hundred ninety nine given 999999' do
+      expect(@number_to_word.translate(999999)).to eq('nine hundred ninety nine thousand nine hundred ninety nine')
+    end
+  end
 end
