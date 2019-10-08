@@ -1,3 +1,9 @@
+class NumberTooBigError < StandardError
+  def initialize
+    super('Number is too big')
+  end
+end
+
 class NumberToWord
   def initialize
     @word = ''
@@ -7,6 +13,7 @@ class NumberToWord
     @word = ''
 
     return number_map[number] if number.zero?
+    raise NumberTooBigError if number >= 1_000_000_000_000
 
     if number >= 1_000_000_000
       get_billions(number)
