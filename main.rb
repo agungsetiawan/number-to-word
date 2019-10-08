@@ -8,10 +8,6 @@ begin
   word = number_to_word.translate(input)
 
   puts word
-rescue NegativeNumberError => e
-  puts e
-rescue NumberTooBigError => e
-  puts e
-rescue InvalidNumberError => e
+rescue StandardError => e
   puts e
 end
