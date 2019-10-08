@@ -17,6 +17,15 @@ class NegativeNumberError < StandardError
 end
 
 class NumberToWord
+  TRILLION = 1_000_000_000_000
+  BILLION = 1_000_000_000
+  MILLION = 1_000_000
+  THOUSAND = 1_000
+  HUNDRED = 100
+  TEN = 10
+  TWENTY = 20
+  ZERO = 0
+
   def initialize
     @word = ''
   end
@@ -25,27 +34,27 @@ class NumberToWord
     @word = ''
 
     raise InvalidNumberError unless number.is_a? Integer
-    raise NumberTooBigError if number >= 1_000_000_000_000
-    raise NegativeNumberError if number < 0
+    raise NumberTooBigError if number >= TRILLION
+    raise NegativeNumberError if number < ZERO
 
     return number_map[number] if number.zero?
 
-    if number >= 1_000_000_000
+    if number >= BILLION
       get_billions(number)
 
-      number = number % 1_000_000_000
+      number = number % BILLION
     end
 
-    if number >= 1_000_000
+    if number >= MILLION
       get_millions(number)
 
-      number = number % 1_000_000
+      number = number % MILLION
     end
 
-    if number >= 1000
+    if number >= THOUSAND
       get_thousands(number)
 
-      number = number % 1000
+      number = number % THOUSAND
     end
 
     get_hundreds_tens_units(number)
@@ -56,52 +65,52 @@ class NumberToWord
   private
 
   def get_billions(number)
-    num_billions = number / 1_000_000_000
+    num_billions = number / BILLION
     get_hundreds_tens_units(num_billions)
 
     @word << " billion"
   end
 
   def get_millions(number)
-    num_millions = number / 1_000_000
+    num_millions = number / MILLION
     get_hundreds_tens_units(num_millions)
 
     @word << " million"
   end
 
   def get_thousands(number)
-    num_thousand = number / 1000
+    num_thousand = number / THOUSAND
     get_hundreds_tens_units(num_thousand)
 
     @word << " thousand"
   end
 
   def get_hundreds_tens_units(number)
-    if number >= 100
+    if number >= HUNDRED
       get_hundreds(number)
 
-      number = number % 100
+      number = number % HUNDRED
     end
 
-    if number > 20
+    if number > TWENTY
       get_tens(number)
 
-      number = number % 10
+      number = number % TEN
     end
 
-    if number > 0
+    if number > ZERO
       get_units(number)
     end
   end
 
   def get_hundreds(number)
-    num_hundred = number / 100
+    num_hundred = number / HUNDRED
     @word << " #{number_map[num_hundred]} hundred"
   end
 
   def get_tens(number)
-    num_ten = number / 10
-    @word << " #{number_map[num_ten * 10]}"
+    num_ten = number / TEN
+    @word << " #{number_map[num_ten * TEN]}"
   end
 
   def get_units(number)
