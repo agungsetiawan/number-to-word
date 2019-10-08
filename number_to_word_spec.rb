@@ -205,5 +205,9 @@ RSpec.describe NumberToWord do
     it 'raise InvalidNumberError exception when input is not a number' do
       expect { @number_to_word.translate("100")}.to raise_error(InvalidNumberError)
     end
+
+    it 'raise NegativeNumberError exception when input is negative number' do
+      expect { @number_to_word.translate(-100)}.to raise_error(NegativeNumberError)
+    end
   end
 end
