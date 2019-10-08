@@ -4,6 +4,12 @@ class NumberTooBigError < StandardError
   end
 end
 
+class InvalidNumberError < StandardError
+  def initialize
+    super('Input is not a number')
+  end
+end
+
 class NumberToWord
   def initialize
     @word = ''
@@ -12,8 +18,10 @@ class NumberToWord
   def translate(number)
     @word = ''
 
-    return number_map[number] if number.zero?
+    raise InvalidNumberError unless number.is_a? Integer
     raise NumberTooBigError if number >= 1_000_000_000_000
+
+    return number_map[number] if number.zero?
 
     if number >= 1_000_000_000
       get_billions(number)
