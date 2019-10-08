@@ -112,4 +112,62 @@ RSpec.describe NumberToWord do
       expect(@number_to_word.translate(999999)).to eq('nine hundred ninety nine thousand nine hundred ninety nine')
     end
   end
+
+  context "1000000 - 999999999" do
+    it 'return one million given 1000000' do
+      expect(@number_to_word.translate(1_000_000)).to eq('one million')
+    end
+
+    it 'return one million two given 1000002' do
+      expect(@number_to_word.translate(1_000_002)).to eq('one million two')
+    end
+
+    it 'return one million twelve given 1000012' do
+      expect(@number_to_word.translate(1_000_012)).to eq('one million twelve')
+    end
+
+    it 'return one million thirty six given 1000036' do
+      expect(@number_to_word.translate(1_000_036)).to eq('one million thirty six')
+    end
+
+    it 'return one million two hundred given 1000200' do
+      expect(@number_to_word.translate(1_000_200)).to eq('one million two hundred')
+    end
+
+    it 'return one million two hundred thirty four given 1000234' do
+      expect(@number_to_word.translate(1_000_234)).to eq('one million two hundred thirty four')
+    end
+
+    it 'return one million one thousand two hundred thirty four given 1001234' do
+      expect(@number_to_word.translate(1_001_234)).to eq('one million one thousand two hundred thirty four')
+    end
+
+    it 'return five million eighty thousand given 5080000' do
+      expect(@number_to_word.translate(5_080_000)).to eq('five million eighty thousand')
+    end
+
+    it 'return five million eighty thousand nine hundred given 5080900' do
+      expect(@number_to_word.translate(5_080_900)).to eq('five million eighty thousand nine hundred')
+    end
+
+    it 'return eighty million given 80000000' do
+      expect(@number_to_word.translate(80_000_000)).to eq('eighty million')
+    end
+
+    it 'return eighty seven million one hundred twenty three thousand four hundred fifty six  given 87123456' do
+      expect(@number_to_word.translate(87_123_456)).to eq('eighty seven million one hundred twenty three thousand four hundred fifty six')
+    end
+
+    it 'return five hundren million given 500000000' do
+      expect(@number_to_word.translate(500_000_000)).to eq('five hundred million')
+    end
+
+    it 'return five hundren million one given 500000001' do
+      expect(@number_to_word.translate(500_000_001)).to eq('five hundred million one')
+    end
+
+    it 'return nine hundred ninety nine million nine hundred ninety nine thousand nine hundred ninety nine given 999999999' do
+      expect(@number_to_word.translate(999_999_999)).to eq('nine hundred ninety nine million nine hundred ninety nine thousand nine hundred ninety nine')
+    end
+  end
 end
