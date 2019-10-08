@@ -1,5 +1,15 @@
 class NumberToWord
   def translate(number)
+    if number > 20 && number < 100
+      num_ten = number / 10
+      single  = number % 10
+
+      word = number_map[num_ten * 10]
+      word << " #{number_map[single]}" unless single.zero?
+
+      return word
+    end
+
     if number >= 0 && number <= 20
       return number_map[number]
     end
