@@ -8,6 +8,27 @@ class NumberToWord
 
     return number_map[number] if number.zero?
 
+    if number >= 1000 && number < 1_000_000
+      get_thousands(number)
+
+      number = number % 1000
+    end
+
+    get_hundreds_tens_units(number)
+
+    @word.strip
+  end
+
+  private
+
+  def get_thousands(number)
+    num_thousand = number / 1000
+    get_hundreds_tens_units(num_thousand)
+
+    @word << " thousand"
+  end
+
+  def get_hundreds_tens_units(number)
     if number >= 100 && number < 1000
       get_hundreds(number)
 
@@ -23,11 +44,7 @@ class NumberToWord
     if number > 0 && number <= 20
       get_units(number)
     end
-
-    @word.strip
   end
-
-  private
 
   def get_hundreds(number)
     num_hundred = number / 100

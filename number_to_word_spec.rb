@@ -83,7 +83,7 @@ RSpec.describe NumberToWord do
     end
   end
 
-  context "1000 - 999_999" do
+  context "1000 - 999999" do
     it 'return one thousand given 1000' do
       expect(@number_to_word.translate(1000)).to eq('one thousand')
     end
