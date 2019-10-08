@@ -8,19 +8,19 @@ class NumberToWord
 
     return number_map[number] if number.zero?
 
-    if number >= 1_000_000_000 && number < 1_000_000_000_000
+    if number >= 1_000_000_000
       get_billions(number)
 
       number = number % 1_000_000_000
     end
 
-    if number >= 1_000_000 && number < 1_000_000_000
+    if number >= 1_000_000
       get_millions(number)
 
       number = number % 1_000_000
     end
 
-    if number >= 1000 && number < 1_000_000
+    if number >= 1000
       get_thousands(number)
 
       number = number % 1000
@@ -55,19 +55,19 @@ class NumberToWord
   end
 
   def get_hundreds_tens_units(number)
-    if number >= 100 && number < 1000
+    if number >= 100
       get_hundreds(number)
 
       number = number % 100
     end
 
-    if number > 20 && number < 100
+    if number > 20
       get_tens(number)
 
       number = number % 10
     end
 
-    if number > 0 && number <= 20
+    if number > 0
       get_units(number)
     end
   end
