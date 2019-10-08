@@ -196,4 +196,10 @@ RSpec.describe NumberToWord do
       expect(@number_to_word.translate(100_100_100_100)).to eq('one hundred billion one hundred million one hundred thousand one hundred')
     end
   end
+
+  context "Edge cases" do
+    it 'raise NumberTooBigError exception when number is bigger or equal to 1 trillion' do
+      expect { @number_to_word.translate(1_000_000_000_000)}.to raise_error(NumberTooBigError)
+    end
+  end
 end
