@@ -7,21 +7,29 @@ class NumberToWord
     @word = ''
 
     if number > 20 && number < 100
-      num_ten = number / 10
-      single  = number % 10
-
-      @word << number_map[num_ten * 10]
-      @word << " #{number_map[single]}" unless single.zero?
+      get_tens(number)
     end
 
     if number >= 0 && number <= 20
-      @word << number_map[number]
+      get_units(number)
     end
 
     @word
   end
 
   private
+
+  def get_tens(number)
+    num_ten = number / 10
+    single  = number % 10
+
+    @word << number_map[num_ten * 10]
+    @word << " #{number_map[single]}" unless single.zero?
+  end
+
+  def get_units(number)
+    @word << number_map[number]
+  end
 
   def number_map
     {
