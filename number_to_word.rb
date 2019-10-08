@@ -10,6 +10,12 @@ class InvalidNumberError < StandardError
   end
 end
 
+class NegativeNumberError < StandardError
+  def initialize
+    super('Input should not be a negative number')
+  end
+end
+
 class NumberToWord
   def initialize
     @word = ''
@@ -20,6 +26,7 @@ class NumberToWord
 
     raise InvalidNumberError unless number.is_a? Integer
     raise NumberTooBigError if number >= 1_000_000_000_000
+    raise NegativeNumberError if number < 0
 
     return number_map[number] if number.zero?
 
