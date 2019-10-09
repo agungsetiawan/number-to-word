@@ -77,8 +77,8 @@ class NumberToWord
   end
 
   def get_thousands(number)
-    num_thousand = number / THOUSAND
-    get_hundreds_tens_units(num_thousand)
+    num_thousands = number / THOUSAND
+    get_hundreds_tens_units(num_thousands)
 
     @word << " thousand"
   end
@@ -102,13 +102,13 @@ class NumberToWord
   end
 
   def get_hundreds(number)
-    num_hundred = number / HUNDRED
-    @word << " #{number_map[num_hundred]} hundred"
+    num_hundreds = number / HUNDRED
+    @word << " #{number_map[num_hundreds]} hundred"
   end
 
   def get_tens(number)
-    num_ten = number / TEN
-    @word << " #{number_map[num_ten * TEN]}"
+    num_tens = number / TEN
+    @word << " #{number_map[num_tens * TEN]}"
   end
 
   def get_units(number)
