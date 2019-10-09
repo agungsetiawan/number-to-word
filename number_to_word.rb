@@ -18,13 +18,13 @@ end
 
 class NumberToWord
   TRILLION = 1_000_000_000_000
-  BILLION = 1_000_000_000
-  MILLION = 1_000_000
+  BILLION  = 1_000_000_000
+  MILLION  = 1_000_000
   THOUSAND = 1_000
-  HUNDRED = 100
-  TEN = 10
-  TWENTY = 20
-  ZERO = 0
+  HUNDRED  = 100
+  TEN      = 10
+  TWENTY   = 20
+  ZERO     = 0
 
   def initialize
     @word = ''
