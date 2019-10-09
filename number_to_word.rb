@@ -31,8 +31,8 @@ class NumberToWord
   end
 
   def translate(number)
-    raise InvalidNumberError unless number.is_a? Integer
-    raise NumberTooBigError if number >= TRILLION
+    raise InvalidNumberError  unless number.is_a? Integer
+    raise NumberTooBigError   if number >= TRILLION
     raise NegativeNumberError if number < ZERO
 
     return number_map[number] if number.zero?
