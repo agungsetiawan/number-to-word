@@ -31,3 +31,10 @@ It only supports positive integer and max number is 999_999_999_999 (`nine hundr
 Input is bigger than max   : `NumberTooBigError` is raised  
 Input is not a number      : `InvalidNumberError` is raised  
 Input is a negative number : `NegativeNumberError` is raised
+
+# Running The Specs
+Since I developed using TDD approach, test/spec file is also included. To run the specs use the command below
+
+```
+$ rspec number_to_word_spec.rb
+```
