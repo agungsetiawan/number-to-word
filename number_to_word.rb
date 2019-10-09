@@ -39,19 +39,16 @@ class NumberToWord
 
     if number >= BILLION
       get_billions(number)
-
       number = number % BILLION
     end
 
     if number >= MILLION
       get_millions(number)
-
       number = number % MILLION
     end
 
     if number >= THOUSAND
       get_thousands(number)
-
       number = number % THOUSAND
     end
 
@@ -86,13 +83,11 @@ class NumberToWord
   def get_hundreds_tens_units(number)
     if number >= HUNDRED
       get_hundreds(number)
-
       number = number % HUNDRED
     end
 
     if number > TWENTY
       get_tens(number)
-
       number = number % TEN
     end
 
